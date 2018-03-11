@@ -113,10 +113,15 @@
     <ClCompile Include="gdBody.cpp" />
     <ClCompile Include="gdVec2.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gdBody.h" />
     <ClInclude Include="gdVec2.h" />
+    <ClInclude Include="Matrix4.h" />
+    <ClInclude Include="Vector3.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

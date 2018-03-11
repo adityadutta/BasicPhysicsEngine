@@ -4,8 +4,8 @@
 class gdVec2
 {
 public:
-	double x;
-	double y;
+	double x;							//variable to hold the x component of the vector
+	double y;							//variable to hold the y component of the vector
 
 	gdVec2();
 	gdVec2(double _x, double _y);
