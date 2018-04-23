@@ -1,7 +1,7 @@
 #include "World.h"
 
 
-World::World(gdVec2& initialGravityAcceleration, gdVec2& initialWindForce)
+World::World(Vector3& initialGravityAcceleration, Vector3& initialWindForce)
 {
 	gravityAcceleration = initialGravityAcceleration;
 	windForce = initialWindForce;
@@ -9,7 +9,11 @@ World::World(gdVec2& initialGravityAcceleration, gdVec2& initialWindForce)
 
 void World::Update(double timeStep)
 {
+	Vector3 forceStar1;
+	Vector3 forceStar2;
 	for (auto body : bodies) {
+		//Gravitation
+		
 
 		//Update position from velocity times timeStep
 		//position = position(init) + linearVelocity * time + 0.5 * acceleration * time ^2
@@ -23,6 +27,9 @@ void World::Update(double timeStep)
 		body->acceleration.SetZero();
 	}
 
+	//Force vector = force(mag) * direction vector(normalized)
+	//direction vector(normalized) = PS/magnitude
+	//Fg = G * Mp * Ms / r^2
 	//update elapsed time by time step
 	elapsedTime += timeStep;
 }

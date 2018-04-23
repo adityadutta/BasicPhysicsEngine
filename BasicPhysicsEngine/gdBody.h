@@ -1,19 +1,26 @@
 #ifndef GDBODY_H
 #define GDBODY_H
 
-#include"gdVec2.h"
+#include<SDL.h>
+#include<SDL_image.h>
+#include"Vector3.h"
+
+using namespace MATH;
 class gdBody
 {
-
-public:
 	double mass;									//variable to hold the value of mass
-	gdVec2 position;								//variable to hold the value of position
-	gdVec2 linearVelocity;							//variable to hold the value of velocity
-	gdVec2 acceleration;							//variable to hold the value of acceleration
+	SDL_Surface *bodyImage;
+public:
+	Vector3 position;								//variable to hold the value of position
+	Vector3 linearVelocity;							//variable to hold the value of velocity
+	Vector3 acceleration;							//variable to hold the value of acceleration
 
 	gdBody(double _mass);
-	gdBody(double _mass, gdVec2 _position, gdVec2 _linearVelocity, gdVec2 _acceleration);
-	void ApplyForceToCentre(const gdVec2& force);   // update acceleration using a = F/m
+	gdBody(char* _imageName, double _mass, Vector3 _position, Vector3 _linearVelocity, Vector3 _acceleration);
+	void Update(double timeStep);
+	void ApplyForceToCentre(const Vector3& force);   // update acceleration using a = F/m
+	SDL_Surface* getImage();
+	double getMass();
 
 };
 #endif //!GDBODY_H
